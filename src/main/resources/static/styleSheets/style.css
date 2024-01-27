@@ -1,0 +1,143 @@
+.box{
+    background-color: aliceblue;
+    border: solid black 3px;
+    width: 90vw;
+    height: 80vw;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+form {
+    border: #57819C, solid, 2px;
+}
+
+h2{
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.header{
+    font-family:Arial, Helvetica, sans-serif;
+    border: #57819C solid 2px;
+    border-radius: 2em;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    color: #5E91BF;
+}
+
+
+.form {
+    font-family:Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+ 
+}
+
+input {
+    margin-top: 10px;
+}
+
+nav {
+    padding-left: 37%;
+    padding-top: 20px;
+}
+
+button {
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 10px;
+}
+
+.answer-container{
+    display: flex;
+    flex-direction: row;
+    padding-left: 15px;
+    border:#57819C solid 2px;
+    width: 200px;
+    margin-bottom: 15px;
+    border-radius: 2em;
+    background-color: #5E91BF;
+    color: aliceblue;
+}
+.answer-container:hover{
+    background-color: white;
+    box-shadow: 10px 0px 10px #5E91BF;
+    transition: 2ms;
+    color: #5E91BF;;
+}
+
+input{
+    margin-top: 0%;
+}
+
+#score-display{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height:80%;
+
+}
+#score-display p {
+    padding: 5px;
+    height: 2px;
+}
+
+#correct-container{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+
+}
+
+.correct-answers {
+    border: #57819C 2px solid;
+    margin-bottom: 10px;
+    border-radius: 2em;
+    padding: 10px;
+}
+
+#play-again-button, #submit-button{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1em;
+    padding: 10px;
+    background-color: white;
+    border: #57819C 2px solid;
+    color: #5E91BF;
+
+}
+
+#play-again-button:hover{
+    background-color: #5E91BF;
+    box-shadow: 10px 0px 10px #5E91BF;
+    transition: 2ms;
+    color: white;
+}
+
+#submit-button:active{
+    background-color: #5E91BF;
+    transition: 2ms;
+    color: white;
+}
+
+#error-message{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#score{
+    margin-top: 5px;;
+}
+
+
+

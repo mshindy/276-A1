@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="vireport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="./javascript/script.js" defer></script>
+        <title>Document</title>
+    </head>
+    <body onload="updatePage()">
+        <section class="box", id="box">
+            <h1 class="header">Interactive Quiz</h1>
+            <h2 class="main-display" id="question-header">Question <span id="question-text"></span></h2>
+            <form id="form" class="form" class="main-display" method="post" action="#" onsubmit="submit()">
+                <span id="answer-1" class="answer-container" name="0">
+                    <input type="radio" name="answer" id="A">
+                    <p class="selection">HELLO 1</p>
+                </span>
+                <span id="answer-2" class="answer-container" name="1">
+                    <input type="radio" name="answer" id="B">
+                    <p class="selection">HELLO 2</p>
+                </span>
+                <span id="answer-3" class="answer-container" name="2">
+                    <input type="radio" name="answer" id="C">
+                    <p class="selection">HELLO 3</p>
+                </span>
+            </form>
+            <nav id="navigate-buttons" class="main-display">
+                <button id="back-button" onclick="goBack()">BACK</button>
+                <button id="next-button" onclick="goNext()">NEXT</button>
+            </nav>
+            <!-- <div id="sub-button-container"> -->
+                <button class="main-display" id="submit-button" onclick="submit()">SUBMIT</button>
+                <p style="display: none" id="error-message">cannot submit until all questions answered</p>
+            <!-- </div>  -->
+            <section id="score-display">
+                <p id="score"></p>
+                <div id="correct-container" class="correct-container">
+                </div>
+                <button style="display: none;" id="play-again-button">Play Again</button>
+            </section>
+        </section>
+        
+        <footer>
+            Copyright 2004
+        </footer>
+    </body>
+</html>
