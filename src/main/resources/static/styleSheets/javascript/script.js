@@ -5,31 +5,41 @@ var questionCount = 0;
 var numCorrect = 0;
 
 
-let questions = ["what is the colour of the sky?", "how old are you?", "what is your name?"];
+let questions = ["what is the colour of the sky?", "how old are you?", "what is your name?", 
+"what year is it?", "what school is this", "whats your dogs name"];
 
 let answers1 = ["blue", "green", "red"];
 let answers2 = ["12", "24", "23"];
 let answers3 = ["bob", "jim", "morgan"];
+let answers4 = ["1999", "2013", "2024"];
+let answers5 = ["SFU", "UBC", "McGill"];
+let answers6 = ["archie", "rascal", "Cooper"];
 
 let userAnswers = [];
 
 var dict = {
     0: answers1,
     1: answers2,
-    2: answers3
+    2: answers3,
+    3: answers4,
+    4: answers5,
+    5: answers6
 }
 
 var correctAnswers = {
     0: answers1[0],
     1: answers2[1],
-    2: answers3[2]
+    2: answers3[2],
+    3: answers4[2],
+    4: answers5[0],
+    5: answers6[2]
 }
 
-var alreadyAnswered = {
-    0: false,
-    1: false,
-    2: false
-}
+// var alreadyAnswered = {
+//     0: false,
+//     1: false,
+//     2: false
+// }
 var radioInputs = document.getElementsByName('answer');
 var backBtn = document.getElementById("back-button");
 var nextBtn = document.getElementById("next-button");
@@ -92,13 +102,15 @@ function goBack(){
 function updatePage(){
     // console.log("update called");
     // console.log(questionCount);
+    errorMessage.style.opacity = '100';
+    errorMessage.style.display = 'none';
     if (questionCount == questions.length-1){
         nextBtn.disabled = true;
-        // submitBtn.disabled = false;
+        submitBtn.disabled = false;
     }
     else{
         nextBtn.disabled = false;
-        // submitBtn.disabled = true;
+        submitBtn.disabled = true;
     }
     if (questionCount == 0){
         backBtn.disabled = true;
@@ -106,6 +118,17 @@ function updatePage(){
     else{
         backBtn.disabled = false;
     }
+
+    if (submitBtn.disabled == true){
+        submitBtn.classList = 'main-display disabled-button';
+    }
+    else{
+        submitBtn.classList = 'main-display submit-button'
+    }
+
+    console.log(submitBtn.classList)
+
+
     let questionText = document.getElementById("question-text");
     let selections = document.getElementsByClassName("selection");
 
@@ -122,7 +145,6 @@ function submit(){
             errorMessage.style.transition = 'opacity 1s';
             errorMessage.style.opacity = '0';
         }, 1000);
-        errorMessage.style.display = "none";
         return;
     }
     for (var i = 0; i < radioInputs.length; i++) {
