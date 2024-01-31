@@ -187,6 +187,7 @@ function DisplayCorrect(){
         newUser.className = "user-answers";
 
         newQ.innerHTML = ("Question " + (i+1) + ": " + questions[i]);
+        newQ.style = "font-weight: 300px;";
         newA.innerHTML = ("Correct Answer: " + correctAnswers[i]);
         newUser.innerHTML = ("Your answer: "+userAnswers[i]);
         if (userAnswers[i] != correctAnswers[i]){
