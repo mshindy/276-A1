@@ -5,15 +5,15 @@ var questionCount = 0;
 var numCorrect = 0;
 
 
-let questions = ["what is the colour of the sky?", "how old are you?", "what is your name?", 
-"what year is it?", "what school is this", "whats your dogs name"];
+let questions = ["In what year did the Berlin Wall fall?", "What is the capital city of Brazil?", "Who wrote “Pride and Prejudice”?", 
+"Which mountain range is the longest in the world?", "What is the largest bone in the human body?", "In which year did World War II end?"];
 
-let answers1 = ["blue", "green", "red"];
-let answers2 = ["12", "24", "23"];
-let answers3 = ["bob", "jim", "morgan"];
-let answers4 = ["1999", "2013", "2024"];
-let answers5 = ["SFU", "UBC", "McGill"];
-let answers6 = ["archie", "rascal", "Cooper"];
+let answers1 = ["1989", "1978", "1990"];
+let answers2 = ["São Paulo", " Brasília", "Rio de Janeiro"];
+let answers3 = ["George Orwell", "Virginia Woolf", "Jane Austen"];
+let answers4 = ["The Alps", "The Rocky Mountains", "The Andes"];
+let answers5 = ["Femur", "Tibia", "Humerus"];
+let answers6 = ["1940", "1943", "1945"];
 
 let userAnswers = [];
 
@@ -35,11 +35,7 @@ var correctAnswers = {
     5: answers6[2]
 }
 
-// var alreadyAnswered = {
-//     0: false,
-//     1: false,
-//     2: false
-// }
+
 var radioInputs = document.getElementsByName('answer');
 var backBtn = document.getElementById("back-button");
 var nextBtn = document.getElementById("next-button");
@@ -49,7 +45,6 @@ var form = document.getElementById("form");
 var scoreDisplay = document.getElementById("score-display")
 var inputContainers = document.getElementsByClassName("answer-container");
 var playAgainBtn = document.getElementById("play-again-button");
-var errorMessage = document.getElementById('error-message');
 
 
 
@@ -67,20 +62,15 @@ for (let i = 0 ; i < inputContainers.length; i++){
 
 function goNext(){
    
-    // Iterate through the radio input elements
     var selected = false;
     for (var i = 0; i < radioInputs.length; i++) {
         if (radioInputs[i].checked) {
-            // if (radioInputs[i].id == correctAnswers[questionCount]){
-            //     numCorrect +=1;
-            // }
             userAnswers[questionCount] = dict[questionCount][i];
             selected = true;
             break;
         }
     }
     if (selected) {
-        console.log("score ", numCorrect);
         questionCount += 1;
         updatePage();
     } else {
@@ -89,28 +79,21 @@ function goNext(){
 }
 
 function goBack(){
-    // console.log("clicked back");
-    // if (radioInputs[questionCount].id == correctAnswers[questionCount] && questionCount != questions.length-1){
-    //     numCorrect --;
-    // }
-    console.log("score: ",numCorrect);
     questionCount --;
     updatePage();
 }
 
 
 function updatePage(){
-    // console.log("update called");
-    // console.log(questionCount);
-    errorMessage.style.opacity = '100';
-    errorMessage.style.display = 'none';
     if (questionCount == questions.length-1){
         nextBtn.disabled = true;
         submitBtn.disabled = false;
+        submitBtn.classList = 'main-display submit-button'
     }
     else{
         nextBtn.disabled = false;
         submitBtn.disabled = true;
+        submitBtn.classList = 'main-display disabled-button';
     }
     if (questionCount == 0){
         backBtn.disabled = true;
@@ -118,16 +101,6 @@ function updatePage(){
     else{
         backBtn.disabled = false;
     }
-
-    if (submitBtn.disabled == true){
-        submitBtn.classList = 'main-display disabled-button';
-    }
-    else{
-        submitBtn.classList = 'main-display submit-button'
-    }
-
-    console.log(submitBtn.classList)
-
 
     let questionText = document.getElementById("question-text");
     let selections = document.getElementsByClassName("selection");
@@ -139,14 +112,6 @@ function updatePage(){
 }
 
 function submit(){
-    if(questionCount != questions.length-1){
-        errorMessage.style.display = 'block';
-        setTimeout(function () {
-            errorMessage.style.transition = 'opacity 1s';
-            errorMessage.style.opacity = '0';
-        }, 1000);
-        return;
-    }
     for (var i = 0; i < radioInputs.length; i++) {
         if (radioInputs[i].checked) {
             userAnswers[questionCount] = dict[questionCount][i];
@@ -156,7 +121,6 @@ function submit(){
     calculateScore();
     score.innerHTML = ("Score: " + numCorrect);
     DisplayCorrect();
-    console.log(numCorrect);
 }
 
 function calculateScore(){
