@@ -5,7 +5,7 @@
         <meta name="vireport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./styleSheets/quizApp.css">
         <script src="./javascript/quizLogic.js" defer></script>
-        <title>Document</title>
+        <title>QuizApp</title>
     </head>
     <body onload="updatePage()">
         <section class="box", id="box">
@@ -29,10 +29,8 @@
                 <button id="back-button" onclick="goBack()">BACK</button>
                 <button id="next-button" onclick="goNext()">NEXT</button>
             </nav>
-            <!-- <div id="sub-button-container"> -->
                 <button class="main-display submit-button" id="submit-button" onclick="submit()">SUBMIT</button>
                 <p style="display: none" id="error-message">cannot submit until all questions answered</p>
-            <!-- </div>  -->
             <section id="score-display">
                 <h2 id="score"></h2>
                 <div id="correct-container" class="correct-container">
