@@ -112,15 +112,19 @@ function updatePage(){
 }
 
 function submit(){
-    for (var i = 0; i < radioInputs.length; i++) {
-        if (radioInputs[i].checked) {
-            userAnswers[questionCount] = dict[questionCount][i];
-            break;
+    var isConfirmed = confirm("Are you sure you want to submit?");
+
+    if (isConfirmed){
+        for (var i = 0; i < radioInputs.length; i++) {
+            if (radioInputs[i].checked) {
+                userAnswers[questionCount] = dict[questionCount][i];
+                break;
+            }
         }
+        calculateScore();
+        score.innerHTML = ("Score: " + numCorrect);
+        DisplayCorrect();
     }
-    calculateScore();
-    score.innerHTML = ("Score: " + numCorrect);
-    DisplayCorrect();
 }
 
 function calculateScore(){
